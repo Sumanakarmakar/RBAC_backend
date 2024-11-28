@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../layout/head.ejs') %>
+  <body>
+    <%- include('../layout/navbar.ejs') %>
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <%- include('../layout/sidebar.ejs') %>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <!-- main section -->
+                <hr />
+                <a href="/admin/adduser">
+                  <button class="btn btn-success">Create User</button>
+                </a>
+
+                <% if(msz.length>0){ %>
+                <div class="alert alert-success"><%= msz %></div>
+                <% } %>
+
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Sl. No.</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Role</th>
+                      <th scope="col">Image</th>
+                      <th scope="col" colspan="5">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% let count=1 %> <% alluserdata.forEach((item,index)=>{ %>
+                    <tr>
+                      <th scope="row"><%= count++ %></th>
+                      <td><%= item.name %></td>
+                      <td><%= item.email %></td>
+                      <td><%= item.phone %></td>
+                      <td><%= item.role_details.roleName %></td>
+                      <td>
+                        <img src="/<%= item.profile_pic %>" alt="photo" />
+                      </td>
+
+                      <td>
+                        <a href="/admin/user/remove/<%= item._id %>">
+                          <button id="update_btn" class="btn btn-danger">
+                            Delete
+                          </button>
+                        </a>
+                      </td>
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <%- include('../layout/partialFooter.ejs') %>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+
+    <%- include('../layout/footer.ejs') %>
+  </body>
+</html>

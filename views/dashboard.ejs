@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layout/head.ejs') %>
+  <body>
+    <%- include('layout/navbar.ejs') %>
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <%- include('layout/sidebar.ejs') %>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                
+                <!-- main section -->
+                <div class="row">
+
+                  <% if(msz.length>0){ %>
+                    <div class="alert alert-success"><%= msz %></div>
+                  <% } %>
+                  
+                  <div class="col-md-3">
+                    <a
+                      href="/admin/roles"
+                      class="card-link text-decoration-none"
+                    >
+                      <div class="card mt-4 about_card" style="width: 100%">
+                        <div class="card-body">
+                          <h5 class="card-title about_title">Roles</h5>
+                          <p class="card_para"></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  
+                  <div class="col-md-3">
+                    <a
+                      href="/admin/users"
+                      class="card-link text-decoration-none"
+                    >
+                      <div class="card mt-4 about_card" style="width: 100%">
+                        <div class="card-body">
+                          <h5 class="card-title about_title">Users</h5>
+                          <p class="card_para"></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-md-3">
+                    <a
+                      href="/admin/products"
+                      class="card-link text-decoration-none"
+                    >
+                      <div class="card mt-4 about_card" style="width: 100%">
+                        <div class="card-body">
+                          <h5 class="card-title about_title">Products</h5>
+                          <p class="card_para"></p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <%- include('layout/partialFooter.ejs') %>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+
+    <%- include('layout/footer.ejs') %>
+  </body>
+</html>

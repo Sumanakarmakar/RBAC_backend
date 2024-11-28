@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../layout/head.ejs') %>
+  <body>
+    <%- include('../layout/navbar.ejs') %>
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <%- include('../layout/sidebar.ejs') %>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <!-- main section -->
+                <hr />
+                <% if(msz.length>0){ %>
+                <div class="alert alert-success"><%= msz %></div>
+                <% } %>
+                <form action="/admin/user/create" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="">User Name : </label>
+                    <input type="text" class="form-control" name="name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Email : </label>
+                    <input type="text" class="form-control" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Phone : </label>
+                    <input type="number" class="form-control" name="phone" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Password : </label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Role : </label>
+                    <select name="roleId" id="" class="form-control dropdown">
+                      <option value="">Select a Role</option>
+                      <% roledata.forEach((role)=>{ %>
+                      <option value="<%= role._id %>">
+                        <%= role.roleName %>
+                      </option>
+                      <% }) %>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">City : </label>
+                    <input type="text" class="form-control" name="city" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">State : </label>
+                    <input type="text" class="form-control" name="state" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">First School : </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="first_school"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Profile Image : </label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      name="profile_pic"
+                    />
+                  </div>
+
+                  <button id="update_btn" type="submit" class="btn btn-primary">
+                    Create
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <%- include('../layout/partialFooter.ejs') %>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+
+    <%- include('../layout/footer.ejs') %>
+  </body>
+</html>
