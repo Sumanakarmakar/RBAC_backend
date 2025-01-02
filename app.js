@@ -35,6 +35,9 @@ app.use(cookieParser());
 app.use(flash());
 app.use(cors());
 
+const RedirectRoute=require("./app/router/admin/RedirectRoute")
+app.use(RedirectRoute)
+
 const AdminRoute = require("./app/router/admin/AdminRoute");
 app.use("/admin", AdminRoute);
 
